@@ -1,0 +1,39 @@
+<h1>Edit <%= @current_user.name %>'s profile</h1>
+
+
+<% if @current_user.errors.any? %>
+<ol>
+  <% @current_user.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ol>
+<% end %>
+
+<%= form_for @current_user do |f| %>
+<p>
+  <%= f.label :image_thumb, "Add a profile image!" %>
+  <%= f.url_field :image_thumb %>
+</p>
+<p>
+<%= f.label :username %>
+<%= f.text_field :username, :required => true %>
+</p>
+<p>
+<%= f.label :name, "Full Name" %>
+<%= f.text_field :name, :required => true %>
+</p>
+<p>
+<%= f.label :email %>
+<%= f.email_field :email, :required => true %>
+</p>
+<p>
+  <%= f.label :password %>
+  <%= f.password_field :password, :required => true %>
+</p>
+<p>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, :required => true %>
+</p>
+<%= f.submit %>
+
+<% end %>

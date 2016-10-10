@@ -1,0 +1,18 @@
+<%= form_for @post do |f| %>
+<p>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title, :required => true %>
+</p>
+<p>
+<%= f.label :post, "New Post" %>
+<br>
+<%= f.text_area :post, :placeholder => "What's going on?", :required => true, cols: "60", rows: "4" %>
+</p>
+<p>
+  <!--
+  TODO: Add tags
+        Add Title
+            -->
+</p>
+<%= f.submit %>
+<% end %>
