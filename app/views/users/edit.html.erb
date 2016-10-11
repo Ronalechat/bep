@@ -1,15 +1,15 @@
-<h1>Edit <%= @current_user.name %>'s profile</h1>
+<h1>Edit <%= @user.name %>'s profile</h1>
 
 
-<% if @current_user.errors.any? %>
+<% if @user.errors.any? %>
 <ol>
-  <% @current_user.errors.full_messages.each do |msg| %>
+  <% @user.errors.full_messages.each do |msg| %>
   <li><%= msg %></li>
   <% end %>
 </ol>
 <% end %>
 
-<%= form_for @current_user do |f| %>
+<%= form_for @user do |f| %>
 <p>
   <%= f.label :image_thumb, "Add a profile image!" %>
   <%= f.url_field :image_thumb %>
@@ -28,11 +28,11 @@
 </p>
 <p>
   <%= f.label :password %>
-  <%= f.password_field :password, :required => true %>
+  <%= f.password_field :password %>
 </p>
 <p>
   <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :required => true %>
+  <%= f.password_field :password_confirmation %>
 </p>
 <%= f.submit %>
 

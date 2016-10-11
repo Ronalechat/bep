@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_for_user, :only => [:edit, :update]
 
   def show
     @post = Post.new
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new user_params
 
     if @user.save
       redirect_to root_path #sign up successful
@@ -19,11 +20,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = @current_user
   end
 
   def update
-    @current_user.update user_params
-    redirect_to @current_user
+    @user = @current_user
+    if @user.update(user_params)
+      flash[:message] = 'Profile successfully updated'
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private

@@ -1,2 +1,11 @@
-<h1>Posts#show</h1>
-<p><%= @post.post %></p>
+<h1>View a post</h1>
+
+
+<h2><%= @post.title %></h2>
+  <p class="created_time"><%= @post.created_at %></p>
+
+<div class="post">
+  <p><%= @post.post %></p>
+</div>
+<%= link_to "Edit Post", edit_post_path(@post.id) %>
+<!-- TODO Destroy button for post. -->

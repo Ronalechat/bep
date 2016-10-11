@@ -4,7 +4,21 @@
 
 <br>
 <div class="crop"><%= image_tag @current_user.image_thumb, :class => "img_thumb" %></div>
+<%= link_to "Edit profile", edit_user_path %>
 
 <p>Your name is: <%= @current_user.name %></p>
 <p><%= @current_user.email %></p>
-<%= link_to "Edit profile", edit_user_path %>
+<hr>
+
+
+<% @current_user.posts.reverse_each do |post| %>
+
+  <h2><%= post.title %></h2>
+  <p class="created_time"> <%= post.created_at.strftime "Posted at %I:%M%P, %A %d, %b %Y" %></p>
+
+  <div class="post">
+    <p><%= truncate(post.post, :length => 200) %></p>
+  <%= link_to "View full post", post_path(post.id), :class => "view_post" %>
+  </div>
+  <hr>
+<% end %>

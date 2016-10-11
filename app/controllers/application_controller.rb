@@ -16,5 +16,5 @@ class ApplicationController < ActionController::Base
 
   def check_for_user
     redirect_to root_path unless @current_user.present?
-  end
+  end 
 end

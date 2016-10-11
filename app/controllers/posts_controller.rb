@@ -4,11 +4,22 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = @current_user.posts.create post_params
-    redirect_to post
+    post = @current_user.posts.new post_params
+    if post.save
+      redirect_to post
+    else
+      render :new
+    end
   end
 
   def edit
+    @post = Post.find params[:id]
+  end
+
+  def update
+    post = Post.find params[:id]
+    post.update post_params
+    redirect_to post
   end
 
   def show
@@ -17,6 +28,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:post, :title,:user_id)
+    params.require(:post).permit(:post, :title)
   end
 end

@@ -24,3 +24,17 @@
     top: -100%;
     bottom: -100%;
 }
+
+.post {
+  white-space: pre-line;
+}
+
+.created_time {
+  font-size: 70%;
+}
+
+.view_post {
+  position: absolute;
+  right: 400px;
+  font-size: 0.8em;
+}

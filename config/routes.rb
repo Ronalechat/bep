@@ -9,15 +9,8 @@
 #
 
 Rails.application.routes.draw do
-  get 'posts/new'
-
-  get 'posts/edit'
-
-  get 'posts/show'
-
-  get 'session/new'
-
   root :to => 'pages#home'
+  get '/users/edit' => 'users#edit', :as => 'edit_user'
   resources :posts
   resources :users, :except => [:index]
 
