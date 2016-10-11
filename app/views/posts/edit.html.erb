@@ -1,2 +1,19 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h1>Edit Post</h1>
+
+<%= form_for @post do |f| %>
+<p>
+  <%= f.label :title %>
+  <%= f.text_field :title, :required => true %>
+</p>
+<p>
+<%= f.label :post %>
+<%= f.text_area :post, :placeholder => "What's going on?", :required => true, cols: "110", rows: "16", :required => true  %>
+</p>
+<p>
+  <%= f.label :tag_list %>
+  <%= f.text_field :tag_list %>
+</p>
+
+<%= f.submit %>
+
+<% end %>

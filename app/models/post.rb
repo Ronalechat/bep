@@ -3,6 +3,7 @@
 # Table name: posts
 #
 #  id         :integer          not null, primary key
+#  title      :text
 #  post       :text
 #  user_id    :integer
 #  like_num   :integer
@@ -12,4 +13,5 @@
 
 class Post < ActiveRecord::Base
   belongs_to :user
+  acts_as_taggable_on :tags
 end

@@ -14,11 +14,12 @@
 <% @current_user.posts.reverse_each do |post| %>
 
   <h2><%= post.title %></h2>
-  <p class="created_time"> <%= post.created_at.strftime "Posted at %I:%M%P, %A %d, %b %Y" %></p>
+  <p class="created_time"><em> <%= post.created_at.strftime "Posted at %I:%M%P, %A %d, %b %Y" %></em></p>
 
   <div class="post">
-    <p><%= truncate(post.post, :length => 200) %></p>
+    <p><%= truncate(post.post, :length => 235) %></p>
   <%= link_to "View full post", post_path(post.id), :class => "view_post" %>
+  <%= render post.tags %>
   </div>
   <hr>
 <% end %>
