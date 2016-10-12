@@ -1,6 +1,8 @@
 <h1>View Profile for <%= @current_user.username %></h1>
-<%= render partial: "/posts/form" %> <!-- title -->
+
+
 <br>
+
 <div class="crop">
   <%= image_tag @current_user.image_thumb, :class => "img_thumb" %>
 </div>

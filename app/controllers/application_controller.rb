@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :fetch_user
+  before_action :fetch_user, :prepare_post
 
   private
   def fetch_user
@@ -16,5 +16,9 @@ class ApplicationController < ActionController::Base
 
   def check_for_user
     redirect_to root_path unless @current_user.present?
-  end 
+  end
+
+  def prepare_post
+    @new_post = Post.new
+  end
 end

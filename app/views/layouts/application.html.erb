@@ -3,28 +3,79 @@
 <head>
   <title>Bep</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,700i" rel="stylesheet">
 </head>
 <body>
-  <header>
+
     <nav>
-      <h2 id="nav_logo">BEP</h2>
-      | <%= link_to 'Home', root_path, :class => "nav_link" %>
-      |
-      <%= link_to 'All tags', tags_path, :class => "nav_link" %>
+      <div class="row">
+        <div class="col-md-1"></div><!-- Empty Div -->
+        <div class="col-md-1">
+          <h2 id="nav_logo">BEP</h2>
+        </div>
+        <div class="col-md-1">
+          <%= link_to(raw( '<span class="glyphicon glyphicon-home" aria-hidden="true"></span> &nbsp;Home'), root_path, :class => "nav_link") %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to(raw( '<span class="glyphicon glyphicon-th" aria-hidden="true"></span> &nbsp;All tags'), tags_path, :class => "nav_link") %>
+        </div>
+
       <% if @current_user.present? %>
-        | <%= link_to "Log out #{ @current_user.email }", login_path, :method => 'delete', :class => "nav_link" %>
-      | <%= link_to "View Profile", user_path(@current_user.id), :class => "nav_link" %> |
+        <div class="col-md-2">
+          <%= link_to(raw( '<span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp;View Profile'), user_path(@current_user.id), :class => "nav_link") %>
+        </div>
+        <div class="col-md-1"></div><!-- Empty Tag -->
+        <div class="col-md-2">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-modal-window" aria-hidden="true"></span> Create New Post</button>
+
+          <div class="modal fade bs-example-modal-lg" role=dialog tabindex=-1 aria-labelledby=myLargeModalLabel>
+            <div class="modal-dialog modal-lg" role=document>
+              <div class=modal-content>
+                <div class=modal-header>
+                  <button type=button class=close data-dismiss=modal aria-label=Close>
+                    <span aria-hidden=true>&times;</span>
+                  </button>
+                  <h4 class=modal-title id=myLargeModalLabel>Write a new post</h4>
+                </div>
+                <div class=modal-body>
+                <%= render :partial => 'posts/form' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End of column -->
       <% else %>
-      |
-      <%= link_to 'Sign up', new_user_path, :class => "nav_link" %>
-      |
-      <%= link_to 'Sign in', login_path, :class => "nav_link" %> |
+        <div class="col-md-2">
+          <%= link_to 'Sign in', login_path, :class => "nav_link" %>
+        </div>
+        <div class="col-md-1"></div><!-- Empty Tag -->
+        <div class="col-md-2">
+          <%= link_to 'Sign up', new_user_path, :class => "nav_link" %>
+        </div>
       <% end %>
+
+
+      <% if @current_user.present? %>
+        <div class="col-md-2">
+          <%= link_to "Log out #{ @current_user.username }", login_path, :method => 'delete', :class => "nav_link" %>
+        </div>
+      <% else %>
+
+        <div class="col-md-1">
+          <%= link_to 'Sign in', login_path, :class => "nav_link" %>
+        </div>
+        <div class="col-md-1">
+          <%= link_to 'Sign up', new_user_path, :class => "nav_link" %>
+        </div>
+      <% end %>
+      <div class="col-md-1"></div><!-- Empty Div -->
+      </div><!-- End or Row div -->
+
     </nav>
+    <header>
     </header>
   <div class="container">
 
