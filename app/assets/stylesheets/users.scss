@@ -1,11 +1,41 @@
 body {
   background-color: #444;
+  font-family: 'Lora', serif;
+  margin: auto;
 }
+
+header {
+  height: 50px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #0F0F0F;
+  margin: 0px auto;
+  position: fixed;
+  z-index: 4000;
+  padding-top: 10px;
+  padding-left: 100px;
+}
+
+#nav_logo {
+  display: inline;
+}
+.nav_link {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.nav_link:hover {
+  background-color: #adccff;
+}
+
 .container {
   max-width: 960px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
+  margin: 0px auto;
+  background-color: #F0F0F0;
+  padding: 60px 40px 70px 40px;
+  border: 1px solid #0f0f0f;
 }
 
 .crop {
@@ -30,8 +60,12 @@ body {
     bottom: -100%;
 }
 
-.post {
+.post_preview {
   white-space: pre-line;
+}
+
+.post_preview_title {
+  text-decoration: none;
 }
 
 .created_time {
@@ -41,5 +75,22 @@ body {
 .view_post {
   position: absolute;
   right: 400px;
-  font-size: 0.8em;
+  font-size: 0.9em;
+}
+
+a.user_post_tag {
+  display: inline;
+  background-color: #87b5ff;
+  border-radius: 6px;
+  padding: 0.5px;
+}
+
+.edit {
+  position: absolute;
+  right: 270px;
+}
+
+.destroy {
+  position: absolute;
+  right: 270px;
 }

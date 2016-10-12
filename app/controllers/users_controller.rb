@@ -21,6 +21,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = @current_user
+
+    # Cloudinary ???
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload( params[:file] )
+
+      user.image_thumb = req['public_id']
+      user.save
+    end
   end
 
   def update

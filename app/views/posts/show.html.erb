@@ -3,16 +3,19 @@
 
 <h2><%= @post.title %></h2>
   <p class="created_time"><%= @post.created_at %></p>
-<div class="post">
+<div class="post_preview">
   <p><%= @post.post %></p>
 </div>
 <div class="tags_show">
   <%= render @post.tags %>
 </div>
 
+<br><br>
+
 
 
 <% if @current_user.present? && @current_user.id == @post.user_id %>
-  <%= link_to "Edit Post", edit_post_path(@post.id) %>
-  <%= button_to "Delete Post", @post, :method => 'delete', :data => {:confirm => 'Are you sure?'}%>
+  <%= link_to "Edit Post", edit_post_path(@post.id), :class => 'edit' %>
+  <br><br>
+  <%= button_to "Delete Post", @post, :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'destroy'%>
 <% end %>

@@ -11,27 +11,27 @@
 
 <%= form_for @user do |f| %>
 <p>
-  <%= f.label :image_thumb, "Add a profile image!" %>
-  <%= f.url_field :image_thumb %>
+  <%= f.label :image_thumb, "Profile photo:" %>
+  <%= f.cl_image_upload :image_thumb %>
 </p>
 <p>
 <%= f.label :username %>
 <%= f.text_field :username, :required => true %>
 </p>
 <p>
-<%= f.label :name, "Full Name" %>
+<%= f.label :name, "Full Name:" %>
 <%= f.text_field :name, :required => true %>
 </p>
 <p>
-<%= f.label :email %>
+<%= f.label :email, "Email:" %>
 <%= f.email_field :email, :required => true %>
 </p>
 <p>
-  <%= f.label :password %>
+  <%= f.label :password, "Password:" %>
   <%= f.password_field :password %>
 </p>
 <p>
-  <%= f.label :password_confirmation %>
+  <%= f.label :password_confirmation, "Confirm password:" %>
   <%= f.password_field :password_confirmation %>
 </p>
 <%= f.submit %>
