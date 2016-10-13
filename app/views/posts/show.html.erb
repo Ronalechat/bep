@@ -2,8 +2,8 @@
   <p class="created_time"><%= @post.created_at %></p>
 
 
-  <% if @current_user.favourites.where(:post_id => @post.id).any? %>
-    <%= form_tag(favourites_path, method: "delete") do %>
+  <% if @current_user.has_favourited_post?(@post.id) %>
+    <%= form_tag(post_favourites_path(@post.id), method: "delete") do %>
     <%= hidden_field_tag :post_id, @post.id %>
     <%= button_tag do%>
       <span class="favourite_button_clicked glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
@@ -11,7 +11,7 @@
 
     <% end %>
   <% else %>
-    <%= form_tag(favourites_path, method: "post") do %>
+    <%= form_tag(post_favourites_path(@post.id), method: "post") do %>
     <%= hidden_field_tag :post_id, @post.id %>
     <%= button_tag do %>
       <span class='favourite_button glyphicon glyphicon-plus-sign' aria-hidden='true'></span>

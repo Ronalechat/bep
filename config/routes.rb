@@ -26,16 +26,18 @@
 Rails.application.routes.draw do
   root :to => 'pages#home'
   get '/users/edit' => 'users#edit', :as => 'edit_user'
-  resources :posts
+  resources :posts do
+    resources :favourites, only: [:create]
+  end
   resources :users, :except => [:index]
   resources :tags, only: [:index, :show]
 
+  #
+  # get '/favourites' => 'favourites#index'
+  # get '/favourites/' => 'favourites#create'
+  delete '/posts/:post_id/favourites' => 'favourites#destroy', :as =>  'post_favourite_path'
 
-  # get 'favourites/index'
-  post '/favourites' => 'favourites#create'
-  delete '/favourites' => 'favourites#destroy'
-
-
+  get '/users/:id/favourites' => 'users#favourites', :as => 'user_favourites'
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

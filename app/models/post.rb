@@ -15,5 +15,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   # has_many :favourites
   has_many :favourites
+  has_many :favourited_by, through: :favourites, source: :user
+
   acts_as_taggable_on :tags
 end

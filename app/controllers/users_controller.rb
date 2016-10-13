@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   before_action :check_for_user, :only => [:edit, :update]
 
+  def favourites
+  end
+
   def show
     @post = Post.new
   end

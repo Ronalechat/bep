@@ -8,6 +8,8 @@
 </div>
 
 <%= link_to "Edit profile", edit_user_path %>
+<br>
+<%= link_to "Saved posts", user_favourites_path %>
 
 <p>Your name is: <%= @current_user.name %></p>
 <p><%= @current_user.email %></p>

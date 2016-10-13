@@ -1,0 +1,15 @@
+<h1>Favourited posts</h1>
+
+<% @current_user.favourited_posts.reverse_each do |fav_post| %>
+
+
+  <h2><%=link_to fav_post.title, post_path(fav_post.id), :class => "post_preview_title" %></h2>
+  <p class="created_time"><em> <%= fav_post.created_at.strftime "Posted at %I:%M%P, %A %d, %b %Y" %></em></p>
+
+  <div class="post_preview">
+  <% if fav_post.post.length < 235 %>
+    <p><%= truncate(fav_post.post) { link_to "View full post", post_path(post.id), :class => "view_post" } %></p>
+  <% else %>
+    <p><%= truncate(fav_post.post, :length => 235) { link_to "View full post", post_path(fav_post.id) } %></p>
+  <% end %>
+  <% end %>
