@@ -35,6 +35,7 @@ gem 'acts-as-taggable-on'
 # gem 'capistrano-rails', group: :development
 group :production do
   gem 'rails_12factor'
+  gem 'acts-as-taggable-on'
 end
 
 group :development, :test do
