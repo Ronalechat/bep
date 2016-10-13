@@ -1,3 +1,29 @@
 <h1>Bep</h1>
 
 <h3>Welcome to bep blogs. </h3>
+
+
+
+
+
+
+
+<% @posts.each do |post| %>
+
+  <h2><%=link_to post.title, post_path(post.id), :class => "post_preview_title" %></h2>
+  <p class="created_time"><em> <%= post.created_at.strftime "Posted at %I:%M%P, %A %d, %b %Y" %></em></p>
+
+  <div class="post_preview">
+  <% if post.post && post.post.length < 235 %>
+    <p><%= truncate(post.post) { link_to "View full post", post_path(post.id), :class => "view_post" } %></p>
+  <% else %>
+    <p><%= truncate(post.post, :length => 235) { link_to "View full post", post_path(post.id) } %></p>
+  <% end %>
+
+  </div>
+  <div class="tags_show">
+    <%= render post.tags %>
+  </div>
+<br>
+  <hr>
+<% end %>
