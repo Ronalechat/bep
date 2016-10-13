@@ -13,8 +13,7 @@
 
 class Post < ActiveRecord::Base
   belongs_to :user
+  # has_many :favourites
+  has_many :favourites
   acts_as_taggable_on :tags
-
-  DISQUS_SHORTNAME = Rails.env == "development" ? "dev_shortname".freeze : "production_shortname".freeze
-
 end

@@ -30,7 +30,12 @@ Rails.application.routes.draw do
   resources :users, :except => [:index]
   resources :tags, only: [:index, :show]
 
-  
+
+  # get 'favourites/index'
+  post '/favourites' => 'favourites#create'
+  delete '/favourites' => 'favourites#destroy'
+
+
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'

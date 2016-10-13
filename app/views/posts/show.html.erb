@@ -1,14 +1,35 @@
-<h1>View a post</h1>
-
-
-<h2><%= @post.title %></h2>
+<h1><%= @post.title %></h1>
   <p class="created_time"><%= @post.created_at %></p>
+
+
+  <% if @current_user.favourites.where(:post_id => @post.id).any? %>
+    <%= form_tag(favourites_path, method: "delete") do %>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= button_tag do%>
+      <span class="favourite_button_clicked glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+    <% end %>
+
+    <% end %>
+  <% else %>
+    <%= form_tag(favourites_path, method: "post") do %>
+    <%= hidden_field_tag :post_id, @post.id %>
+    <%= button_tag do %>
+      <span class='favourite_button glyphicon glyphicon-plus-sign' aria-hidden='true'></span>
+    <% end %>
+  <% end %>
+  <% end %>
+
+<!-- <span class="favourite_button glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+<span class="favourite_button glyphicon glyphicon-ok-sign" aria-hidden="true"></span> -->
+
+
 <div class="post_preview">
   <p><%= @post.post %></p>
 </div>
 <div class="tags_show">
   <%= render @post.tags %>
 </div>
+
 
 <br><br>
 
@@ -19,6 +40,8 @@
   <br><br>
   <%= button_to "Delete Post", @post, :method => 'delete', :data => {:confirm => 'Are you sure?'}, :class => 'destroy'%>
 <% end %>
+
+<br><br>
 
 <div id="disqus_thread"></div>
 <script>
