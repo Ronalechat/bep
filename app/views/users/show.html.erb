@@ -4,7 +4,7 @@
 <br>
 
 <div class="crop">
-  <%= image_tag @current_user.image_thumb, :class => "img_thumb" %>
+  <%= cl_image_tag (@current_user.image_thumb), :class => "img_thumb" %>
 </div>
 
 <%= link_to "Edit profile", edit_user_path %>

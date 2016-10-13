@@ -9,7 +9,7 @@
 </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
 <p>
   <%= f.label :image_thumb, "Profile photo:" %>
   <%= f.cl_image_upload :image_thumb %>
