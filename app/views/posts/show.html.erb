@@ -6,7 +6,7 @@
     <%= form_tag(post_favourites_path(@post.id), method: "delete") do %>
     <%= hidden_field_tag :post_id, @post.id %>
     <%= button_tag do%>
-      <span class="favourite_button_clicked glyphicon glyphicon-ok-sign" aria-hidden="true"></span>
+      <span class="favourite_button clicked glyphicon glyphicon-ok-sign" aria-hidden="true" data-bubble="Unfavourite post"></span>
     <% end %>
 
     <% end %>
@@ -14,7 +14,7 @@
     <%= form_tag(post_favourites_path(@post.id), method: "post") do %>
     <%= hidden_field_tag :post_id, @post.id %>
     <%= button_tag do %>
-      <span class='favourite_button glyphicon glyphicon-plus-sign' aria-hidden='true'></span>
+      <span class='favourite_button glyphicon glyphicon-plus-sign' aria-hidden='true' data-bubble="Favourite post"></span>
     <% end %>
   <% end %>
   <% end %>

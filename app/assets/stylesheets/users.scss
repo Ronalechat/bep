@@ -164,13 +164,13 @@ a.user_post_tag {
 }
 
 .favourite_button {
+  color: #88e;
   font-size: 150%;
   padding: 3px;
 }
 
-.favourite_button_clicked {
+.favourite_button.clicked {
   color: #ff3d3d;
-  font-size: 150%;
   padding: 3px;
 }
 
@@ -178,5 +178,4 @@ a.user_post_tag {
   max-width: 3.7em;
   display: inline-block;
   padding-bottom: 20px;
-
 }

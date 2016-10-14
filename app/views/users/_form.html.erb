@@ -6,7 +6,7 @@
 </ol>
 <% end %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user do |f|, :class=> "form-inline"%>
 <p>
 <%= f.label :username %>
 <%= f.text_field :username, :required => true %>
