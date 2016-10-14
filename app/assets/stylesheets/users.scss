@@ -2,6 +2,11 @@ body {
   background-color: #444;
   font-family: 'Open Sans', sans-serif;
   margin: auto;
+  background: rgb(89,106,114); /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(89,106,114,1) 15%, rgba(206,220,231,1) 50%, rgba(89,106,114,1) 90%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(89,106,114,1) 15%,rgba(206,220,231,1) 50%,rgba(89,106,114,1) 90%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(89,106,114,1) 15%,rgba(206,220,231,1) 50%,rgba(89,106,114,1) 90%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#596a72', endColorstr='#596a72',GradientType=1 );
 }
 
 nav {
@@ -98,6 +103,7 @@ nav {
   background-color: #F0F0F0;
   padding: 60px 40px 70px 40px;
   border: 1px solid #0f0f0f;
+  min-height: 710px;
 }
 
 .crop {
@@ -166,4 +172,11 @@ a.user_post_tag {
   color: #ff3d3d;
   font-size: 150%;
   padding: 3px;
+}
+
+.logo {
+  max-width: 3.7em;
+  display: inline-block;
+  padding-bottom: 20px;
+
 }
