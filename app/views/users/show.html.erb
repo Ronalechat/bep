@@ -13,7 +13,7 @@
 
 <p>Your name is: <%= @current_user.name %></p>
 <p><%= @current_user.email %></p>
-<hr>
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 
 
 <% @current_user.posts.reverse_each do |post| %>
@@ -33,5 +33,9 @@
     <%= render post.tags %>
   </div>
 <br>
-  <hr>
+<hr style="width: 100%; color: black; height: 1px; background-color:black;" />
 <% end %>
+
+<br>
+<br>
+<p class="nomore">No more blog posts :'(</p>
